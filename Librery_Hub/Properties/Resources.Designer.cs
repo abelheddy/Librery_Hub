@@ -63,6 +63,16 @@ namespace Librery_Hub.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Add {
+            get {
+                object obj = ResourceManager.GetObject("Add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap adver {
             get {
                 object obj = ResourceManager.GetObject("adver", resourceCulture);
@@ -106,6 +116,26 @@ namespace Librery_Hub.Properties {
         internal static System.Drawing.Bitmap btnlog {
             get {
                 object obj = ResourceManager.GetObject("btnlog", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Delete {
+            get {
+                object obj = ResourceManager.GetObject("Delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Edit {
+            get {
+                object obj = ResourceManager.GetObject("Edit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -206,6 +236,16 @@ namespace Librery_Hub.Properties {
         internal static System.Drawing.Bitmap icons8_eliminar_libro_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-eliminar-libro-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_knowledge_64 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-knowledge-64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

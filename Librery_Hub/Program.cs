@@ -8,6 +8,8 @@ namespace Librery_Hub
 {
     internal static class Program
     {
+        public static String nivel;
+        public static String usuario;
         /// <summary>
         /// Punto de entrada principal para la aplicación.
         /// </summary>

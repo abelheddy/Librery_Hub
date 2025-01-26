@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using CapaNegocio;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace Librery_Hub.Libros
 {
@@ -135,6 +136,27 @@ namespace Librery_Hub.Libros
             }
         }
 
+        private void txtISBN_Enter(object sender, EventArgs e)
+        {
+            if (txt_Editorial.Text == "ISBN")
+            {
+                txt_Editorial.Text = "";
+                txt_Editorial.ForeColor = Color.LightGray;
+            }
+        }
 
+        private void txtISBN_Leave(object sender, EventArgs e)
+        {
+            if (txt_Editorial.Text == "")
+            {
+                txt_Editorial.Text = "ISBN";
+                txt_Editorial.ForeColor = Color.LightGray;
+            }
+        }
+
+        private void btn_ALibro_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

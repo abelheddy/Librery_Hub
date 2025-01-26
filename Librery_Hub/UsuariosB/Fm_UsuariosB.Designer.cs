@@ -1,6 +1,6 @@
-﻿namespace Librery_Hub.Usuarios
+﻿namespace Librery_Hub.UsuariosB
 {
-    partial class Fm_Usuarios
+    partial class Fm_UsuariosB
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@
         {
             this.pl_Controls = new System.Windows.Forms.Panel();
             this.txt_buscar = new System.Windows.Forms.TextBox();
-            this.dgv_DatosUsuarios = new System.Windows.Forms.DataGridView();
+            this.dgv_DatosUsuariosB = new System.Windows.Forms.DataGridView();
             this.btn_Editar = new System.Windows.Forms.Button();
             this.btn_Eliminar = new System.Windows.Forms.Button();
             this.btn_agregar = new System.Windows.Forms.Button();
             this.btn_Buscar = new System.Windows.Forms.Button();
             this.pl_Controls.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_DatosUsuarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_DatosUsuariosB)).BeginInit();
             this.SuspendLayout();
             // 
             // pl_Controls
@@ -45,10 +45,10 @@
             this.pl_Controls.Controls.Add(this.btn_Editar);
             this.pl_Controls.Controls.Add(this.btn_Eliminar);
             this.pl_Controls.Controls.Add(this.btn_agregar);
-            this.pl_Controls.Location = new System.Drawing.Point(129, 465);
+            this.pl_Controls.Location = new System.Drawing.Point(137, 464);
             this.pl_Controls.Name = "pl_Controls";
             this.pl_Controls.Size = new System.Drawing.Size(718, 105);
-            this.pl_Controls.TabIndex = 7;
+            this.pl_Controls.TabIndex = 11;
             // 
             // txt_buscar
             // 
@@ -56,24 +56,22 @@
             this.txt_buscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_buscar.ForeColor = System.Drawing.Color.LightGray;
-            this.txt_buscar.Location = new System.Drawing.Point(212, 24);
+            this.txt_buscar.Location = new System.Drawing.Point(220, 23);
             this.txt_buscar.Name = "txt_buscar";
             this.txt_buscar.Size = new System.Drawing.Size(494, 21);
-            this.txt_buscar.TabIndex = 5;
+            this.txt_buscar.TabIndex = 9;
             this.txt_buscar.Text = "Usuario";
-            this.txt_buscar.Enter += new System.EventHandler(this.txt_buscar_Enter);
-            this.txt_buscar.Leave += new System.EventHandler(this.txt_buscar_Leave);
             // 
-            // dgv_DatosUsuarios
+            // dgv_DatosUsuariosB
             // 
-            this.dgv_DatosUsuarios.AllowUserToAddRows = false;
-            this.dgv_DatosUsuarios.AllowUserToOrderColumns = true;
-            this.dgv_DatosUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_DatosUsuarios.Location = new System.Drawing.Point(35, 81);
-            this.dgv_DatosUsuarios.Name = "dgv_DatosUsuarios";
-            this.dgv_DatosUsuarios.ReadOnly = true;
-            this.dgv_DatosUsuarios.Size = new System.Drawing.Size(897, 352);
-            this.dgv_DatosUsuarios.TabIndex = 4;
+            this.dgv_DatosUsuariosB.AllowUserToAddRows = false;
+            this.dgv_DatosUsuariosB.AllowUserToOrderColumns = true;
+            this.dgv_DatosUsuariosB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_DatosUsuariosB.Location = new System.Drawing.Point(43, 80);
+            this.dgv_DatosUsuariosB.Name = "dgv_DatosUsuariosB";
+            this.dgv_DatosUsuariosB.ReadOnly = true;
+            this.dgv_DatosUsuariosB.Size = new System.Drawing.Size(897, 352);
+            this.dgv_DatosUsuariosB.TabIndex = 8;
             // 
             // btn_Editar
             // 
@@ -134,13 +132,13 @@
             this.btn_Buscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.btn_Buscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.btn_Buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Buscar.Location = new System.Drawing.Point(712, 21);
+            this.btn_Buscar.Location = new System.Drawing.Point(720, 20);
             this.btn_Buscar.Name = "btn_Buscar";
             this.btn_Buscar.Size = new System.Drawing.Size(44, 31);
-            this.btn_Buscar.TabIndex = 6;
+            this.btn_Buscar.TabIndex = 10;
             this.btn_Buscar.UseVisualStyleBackColor = false;
             // 
-            // Fm_Usuarios
+            // Fm_UsuariosB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -149,14 +147,13 @@
             this.Controls.Add(this.pl_Controls);
             this.Controls.Add(this.btn_Buscar);
             this.Controls.Add(this.txt_buscar);
-            this.Controls.Add(this.dgv_DatosUsuarios);
+            this.Controls.Add(this.dgv_DatosUsuariosB);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Fm_Usuarios";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Fm_Usuarios";
-            this.Load += new System.EventHandler(this.Fm_Usuarios_Load);
+            this.Name = "Fm_UsuariosB";
+            this.Text = "Fm_UsuariosB";
+            this.Load += new System.EventHandler(this.Fm_UsuariosB_Load);
             this.pl_Controls.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_DatosUsuarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_DatosUsuariosB)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,6 +167,6 @@
         private System.Windows.Forms.Button btn_agregar;
         private System.Windows.Forms.Button btn_Buscar;
         private System.Windows.Forms.TextBox txt_buscar;
-        private System.Windows.Forms.DataGridView dgv_DatosUsuarios;
+        private System.Windows.Forms.DataGridView dgv_DatosUsuariosB;
     }
 }

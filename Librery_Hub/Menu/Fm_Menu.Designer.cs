@@ -29,27 +29,29 @@
         private void InitializeComponent()
         {
             this.Pl_Menu = new System.Windows.Forms.Panel();
-            this.lbl_SistemaLibros = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panelContenedor = new System.Windows.Forms.Panel();
-            this.btn_Close = new System.Windows.Forms.Button();
-            this.btn_Mini = new System.Windows.Forms.Button();
+            this.btn_GUL = new System.Windows.Forms.Button();
+            this.lbl_Nivel = new System.Windows.Forms.Label();
+            this.lbl_User = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_CloseCesion = new System.Windows.Forms.Button();
             this.btn_HPrestamos = new System.Windows.Forms.Button();
             this.btn_GPDevolucion = new System.Windows.Forms.Button();
             this.btn_GUsuarios = new System.Windows.Forms.Button();
             this.btn_GLibros = new System.Windows.Forms.Button();
-            this.lbl_User = new System.Windows.Forms.Label();
-            this.lbl_Nivel = new System.Windows.Forms.Label();
+            this.lbl_SistemaLibros = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_Close = new System.Windows.Forms.Button();
+            this.btn_Mini = new System.Windows.Forms.Button();
+            this.panelContenedor = new System.Windows.Forms.Panel();
             this.Pl_Menu.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Pl_Menu
             // 
             this.Pl_Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.Pl_Menu.Controls.Add(this.btn_GUL);
             this.Pl_Menu.Controls.Add(this.lbl_Nivel);
             this.Pl_Menu.Controls.Add(this.lbl_User);
             this.Pl_Menu.Controls.Add(this.pictureBox1);
@@ -63,65 +65,42 @@
             this.Pl_Menu.Size = new System.Drawing.Size(389, 650);
             this.Pl_Menu.TabIndex = 0;
             // 
-            // lbl_SistemaLibros
+            // btn_GUL
             // 
-            this.lbl_SistemaLibros.AutoSize = true;
-            this.lbl_SistemaLibros.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_SistemaLibros.ForeColor = System.Drawing.Color.White;
-            this.lbl_SistemaLibros.Location = new System.Drawing.Point(94, 22);
-            this.lbl_SistemaLibros.Name = "lbl_SistemaLibros";
-            this.lbl_SistemaLibros.Size = new System.Drawing.Size(178, 20);
-            this.lbl_SistemaLibros.TabIndex = 4;
-            this.lbl_SistemaLibros.Text = "Sistema Bibliotecario";
-            this.lbl_SistemaLibros.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_SistemaLibros_MouseDown);
+            this.btn_GUL.BackgroundImage = global::Librery_Hub.Properties.Resources.icons8_knowledge_64;
+            this.btn_GUL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btn_GUL.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btn_GUL.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btn_GUL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_GUL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_GUL.ForeColor = System.Drawing.Color.White;
+            this.btn_GUL.Location = new System.Drawing.Point(56, 411);
+            this.btn_GUL.Name = "btn_GUL";
+            this.btn_GUL.Size = new System.Drawing.Size(291, 55);
+            this.btn_GUL.TabIndex = 9;
+            this.btn_GUL.Text = "Gestion de Lectores";
+            this.btn_GUL.UseVisualStyleBackColor = true;
+            this.btn_GUL.Click += new System.EventHandler(this.btn_GUL_Click);
             // 
-            // panel1
+            // lbl_Nivel
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.panel1.Controls.Add(this.btn_Close);
-            this.panel1.Controls.Add(this.lbl_SistemaLibros);
-            this.panel1.Controls.Add(this.btn_Mini);
-            this.panel1.Location = new System.Drawing.Point(-1, -3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1385, 57);
-            this.panel1.TabIndex = 1;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.lbl_Nivel.AutoSize = true;
+            this.lbl_Nivel.ForeColor = System.Drawing.Color.White;
+            this.lbl_Nivel.Location = new System.Drawing.Point(101, 601);
+            this.lbl_Nivel.Name = "lbl_Nivel";
+            this.lbl_Nivel.Size = new System.Drawing.Size(35, 13);
+            this.lbl_Nivel.TabIndex = 8;
+            this.lbl_Nivel.Text = "label2";
             // 
-            // panelContenedor
+            // lbl_User
             // 
-            this.panelContenedor.Location = new System.Drawing.Point(381, 45);
-            this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(994, 602);
-            this.panelContenedor.TabIndex = 2;
-            // 
-            // btn_Close
-            // 
-            this.btn_Close.BackgroundImage = global::Librery_Hub.Properties.Resources.icons8_cerrar_ventana_50;
-            this.btn_Close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Close.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Close.FlatAppearance.BorderSize = 0;
-            this.btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Close.Location = new System.Drawing.Point(1336, 19);
-            this.btn_Close.Name = "btn_Close";
-            this.btn_Close.Size = new System.Drawing.Size(27, 23);
-            this.btn_Close.TabIndex = 4;
-            this.btn_Close.UseVisualStyleBackColor = true;
-            this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
-            // 
-            // btn_Mini
-            // 
-            this.btn_Mini.BackgroundImage = global::Librery_Hub.Properties.Resources.icons8_minimizar_50;
-            this.btn_Mini.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Mini.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Mini.FlatAppearance.BorderSize = 0;
-            this.btn_Mini.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Mini.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_Mini.Location = new System.Drawing.Point(1303, 19);
-            this.btn_Mini.Name = "btn_Mini";
-            this.btn_Mini.Size = new System.Drawing.Size(27, 23);
-            this.btn_Mini.TabIndex = 3;
-            this.btn_Mini.UseVisualStyleBackColor = false;
-            this.btn_Mini.Click += new System.EventHandler(this.btn_Mini_Click);
+            this.lbl_User.AutoSize = true;
+            this.lbl_User.ForeColor = System.Drawing.Color.White;
+            this.lbl_User.Location = new System.Drawing.Point(101, 572);
+            this.lbl_User.Name = "lbl_User";
+            this.lbl_User.Size = new System.Drawing.Size(35, 13);
+            this.lbl_User.TabIndex = 7;
+            this.lbl_User.Text = "label1";
             // 
             // pictureBox1
             // 
@@ -154,7 +133,7 @@
             this.btn_HPrestamos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_HPrestamos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_HPrestamos.ForeColor = System.Drawing.Color.White;
-            this.btn_HPrestamos.Location = new System.Drawing.Point(56, 450);
+            this.btn_HPrestamos.Location = new System.Drawing.Point(56, 166);
             this.btn_HPrestamos.Name = "btn_HPrestamos";
             this.btn_HPrestamos.Size = new System.Drawing.Size(291, 55);
             this.btn_HPrestamos.TabIndex = 3;
@@ -170,7 +149,7 @@
             this.btn_GPDevolucion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_GPDevolucion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_GPDevolucion.ForeColor = System.Drawing.Color.White;
-            this.btn_GPDevolucion.Location = new System.Drawing.Point(56, 336);
+            this.btn_GPDevolucion.Location = new System.Drawing.Point(56, 84);
             this.btn_GPDevolucion.Name = "btn_GPDevolucion";
             this.btn_GPDevolucion.Size = new System.Drawing.Size(291, 55);
             this.btn_GPDevolucion.TabIndex = 2;
@@ -188,7 +167,7 @@
             this.btn_GUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_GUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_GUsuarios.ForeColor = System.Drawing.Color.White;
-            this.btn_GUsuarios.Location = new System.Drawing.Point(56, 230);
+            this.btn_GUsuarios.Location = new System.Drawing.Point(56, 335);
             this.btn_GUsuarios.Name = "btn_GUsuarios";
             this.btn_GUsuarios.Size = new System.Drawing.Size(291, 55);
             this.btn_GUsuarios.TabIndex = 1;
@@ -204,7 +183,7 @@
             this.btn_GLibros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_GLibros.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_GLibros.ForeColor = System.Drawing.Color.White;
-            this.btn_GLibros.Location = new System.Drawing.Point(56, 119);
+            this.btn_GLibros.Location = new System.Drawing.Point(56, 250);
             this.btn_GLibros.Name = "btn_GLibros";
             this.btn_GLibros.Size = new System.Drawing.Size(291, 55);
             this.btn_GLibros.TabIndex = 0;
@@ -212,25 +191,65 @@
             this.btn_GLibros.UseVisualStyleBackColor = true;
             this.btn_GLibros.Click += new System.EventHandler(this.btn_GLibros_Click);
             // 
-            // lbl_User
+            // lbl_SistemaLibros
             // 
-            this.lbl_User.AutoSize = true;
-            this.lbl_User.ForeColor = System.Drawing.Color.White;
-            this.lbl_User.Location = new System.Drawing.Point(101, 572);
-            this.lbl_User.Name = "lbl_User";
-            this.lbl_User.Size = new System.Drawing.Size(35, 13);
-            this.lbl_User.TabIndex = 7;
-            this.lbl_User.Text = "label1";
+            this.lbl_SistemaLibros.AutoSize = true;
+            this.lbl_SistemaLibros.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_SistemaLibros.ForeColor = System.Drawing.Color.White;
+            this.lbl_SistemaLibros.Location = new System.Drawing.Point(94, 22);
+            this.lbl_SistemaLibros.Name = "lbl_SistemaLibros";
+            this.lbl_SistemaLibros.Size = new System.Drawing.Size(178, 20);
+            this.lbl_SistemaLibros.TabIndex = 4;
+            this.lbl_SistemaLibros.Text = "Sistema Bibliotecario";
+            this.lbl_SistemaLibros.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_SistemaLibros_MouseDown);
             // 
-            // lbl_Nivel
+            // panel1
             // 
-            this.lbl_Nivel.AutoSize = true;
-            this.lbl_Nivel.ForeColor = System.Drawing.Color.White;
-            this.lbl_Nivel.Location = new System.Drawing.Point(101, 601);
-            this.lbl_Nivel.Name = "lbl_Nivel";
-            this.lbl_Nivel.Size = new System.Drawing.Size(35, 13);
-            this.lbl_Nivel.TabIndex = 8;
-            this.lbl_Nivel.Text = "label2";
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.panel1.Controls.Add(this.btn_Close);
+            this.panel1.Controls.Add(this.lbl_SistemaLibros);
+            this.panel1.Controls.Add(this.btn_Mini);
+            this.panel1.Location = new System.Drawing.Point(-1, -3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1385, 57);
+            this.panel1.TabIndex = 1;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            // 
+            // btn_Close
+            // 
+            this.btn_Close.BackgroundImage = global::Librery_Hub.Properties.Resources.icons8_cerrar_ventana_50;
+            this.btn_Close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Close.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Close.FlatAppearance.BorderSize = 0;
+            this.btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Close.Location = new System.Drawing.Point(1336, 19);
+            this.btn_Close.Name = "btn_Close";
+            this.btn_Close.Size = new System.Drawing.Size(27, 23);
+            this.btn_Close.TabIndex = 4;
+            this.btn_Close.UseVisualStyleBackColor = true;
+            this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
+            // 
+            // btn_Mini
+            // 
+            this.btn_Mini.BackgroundImage = global::Librery_Hub.Properties.Resources.icons8_minimizar_50;
+            this.btn_Mini.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Mini.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Mini.FlatAppearance.BorderSize = 0;
+            this.btn_Mini.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Mini.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_Mini.Location = new System.Drawing.Point(1303, 19);
+            this.btn_Mini.Name = "btn_Mini";
+            this.btn_Mini.Size = new System.Drawing.Size(27, 23);
+            this.btn_Mini.TabIndex = 3;
+            this.btn_Mini.UseVisualStyleBackColor = false;
+            this.btn_Mini.Click += new System.EventHandler(this.btn_Mini_Click);
+            // 
+            // panelContenedor
+            // 
+            this.panelContenedor.Location = new System.Drawing.Point(381, 45);
+            this.panelContenedor.Name = "panelContenedor";
+            this.panelContenedor.Size = new System.Drawing.Size(994, 602);
+            this.panelContenedor.TabIndex = 2;
             // 
             // Fm_Menu
             // 
@@ -244,11 +263,12 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Fm_Menu";
             this.Text = "Fm_Menu";
+            this.Load += new System.EventHandler(this.Fm_Menu_Load);
             this.Pl_Menu.ResumeLayout(false);
             this.Pl_Menu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -269,5 +289,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbl_Nivel;
         private System.Windows.Forms.Label lbl_User;
+        private System.Windows.Forms.Button btn_GUL;
     }
 }

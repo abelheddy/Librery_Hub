@@ -102,6 +102,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsuariosB\Fm_AUB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsuariosB\Fm_AUB.Designer.cs">
+      <DependentUpon>Fm_AUB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UsuariosB\Fm_UsuariosB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsuariosB\Fm_UsuariosB.Designer.cs">
+      <DependentUpon>Fm_UsuariosB.cs</DependentUpon>
+    </Compile>
     <Compile Include="Usuarios\Fm_AUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +163,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UsuariosB\Fm_AUB.resx">
+      <DependentUpon>Fm_AUB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsuariosB\Fm_UsuariosB.resx">
+      <DependentUpon>Fm_UsuariosB.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Usuarios\Fm_AUsuarios.resx">
       <DependentUpon>Fm_AUsuarios.cs</DependentUpon>
     </EmbeddedResource>
@@ -222,6 +240,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\btnlog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
+      <Project>{e2644a43-95d5-4e57-9e0a-bc5dad41e8cf}</Project>
+      <Name>CapaNegocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-knowledge-64.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

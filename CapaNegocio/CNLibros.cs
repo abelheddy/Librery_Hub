@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CapaDatos;
 
-namespace CapaDatos
+namespace CapaNegocio
 {
-    public class Class1
+    internal class CNLibros
     {
     }
 }

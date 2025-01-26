@@ -32,6 +32,8 @@
             this.btn_Close = new System.Windows.Forms.Button();
             this.btn_Mini = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.txtISBN = new System.Windows.Forms.TextBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_Cancel = new System.Windows.Forms.Button();
@@ -49,6 +51,7 @@
             this.txt_Titulo = new System.Windows.Forms.TextBox();
             this.Pl_movie.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -101,6 +104,8 @@
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImage = global::Librery_Hub.Properties.Resources.fondo;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.pictureBox6);
+            this.panel1.Controls.Add(this.txtISBN);
             this.panel1.Controls.Add(this.pictureBox7);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btn_Cancel);
@@ -120,6 +125,31 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(670, 595);
             this.panel1.TabIndex = 5;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox6.Image = global::Librery_Hub.Properties.Resources.Line_20;
+            this.pictureBox6.Location = new System.Drawing.Point(139, 289);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(449, 1);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 18;
+            this.pictureBox6.TabStop = false;
+            // 
+            // txtISBN
+            // 
+            this.txtISBN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(48)))));
+            this.txtISBN.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtISBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtISBN.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtISBN.Location = new System.Drawing.Point(139, 264);
+            this.txtISBN.Name = "txtISBN";
+            this.txtISBN.Size = new System.Drawing.Size(449, 19);
+            this.txtISBN.TabIndex = 17;
+            this.txtISBN.Text = "ISBN";
+            this.txtISBN.Enter += new System.EventHandler(this.txtISBN_Enter);
+            this.txtISBN.Leave += new System.EventHandler(this.txtISBN_Leave);
             // 
             // pictureBox7
             // 
@@ -172,12 +202,13 @@
             this.btn_ALibro.Size = new System.Drawing.Size(75, 69);
             this.btn_ALibro.TabIndex = 13;
             this.btn_ALibro.UseVisualStyleBackColor = true;
+            this.btn_ALibro.Click += new System.EventHandler(this.btn_ALibro_Click);
             // 
             // pictureBox5
             // 
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox5.Image = global::Librery_Hub.Properties.Resources.Line_20;
-            this.pictureBox5.Location = new System.Drawing.Point(139, 365);
+            this.pictureBox5.Location = new System.Drawing.Point(139, 424);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(449, 1);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -188,7 +219,7 @@
             // 
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox4.Image = global::Librery_Hub.Properties.Resources.Line_20;
-            this.pictureBox4.Location = new System.Drawing.Point(139, 294);
+            this.pictureBox4.Location = new System.Drawing.Point(139, 353);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(449, 1);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -230,7 +261,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(330, 269);
+            this.dateTimePicker1.Location = new System.Drawing.Point(388, 327);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 6;
@@ -241,7 +272,7 @@
             this.txt_Editorial.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_Editorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Editorial.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txt_Editorial.Location = new System.Drawing.Point(139, 340);
+            this.txt_Editorial.Location = new System.Drawing.Point(139, 399);
             this.txt_Editorial.Name = "txt_Editorial";
             this.txt_Editorial.Size = new System.Drawing.Size(449, 19);
             this.txt_Editorial.TabIndex = 4;
@@ -255,7 +286,7 @@
             this.txt_APublicacion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_APublicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_APublicacion.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txt_APublicacion.Location = new System.Drawing.Point(139, 269);
+            this.txt_APublicacion.Location = new System.Drawing.Point(139, 328);
             this.txt_APublicacion.Name = "txt_APublicacion";
             this.txt_APublicacion.Size = new System.Drawing.Size(449, 19);
             this.txt_APublicacion.TabIndex = 3;
@@ -320,6 +351,7 @@
             this.Pl_movie.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -351,5 +383,7 @@
         private System.Windows.Forms.Button btn_Cancel;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.TextBox txtISBN;
     }
 }

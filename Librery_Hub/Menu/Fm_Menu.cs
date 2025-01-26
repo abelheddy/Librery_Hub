@@ -12,6 +12,7 @@ using Librery_Hub.Libros;
 using Librery_Hub.Usuarios;
 using Librery_Hub.Prestamos;
 using Librery_Hub.Historial;
+using Librery_Hub.UsuariosB;
 
 namespace Librery_Hub.Menu
 {
@@ -20,6 +21,22 @@ namespace Librery_Hub.Menu
         public Fm_Menu()
         {
             InitializeComponent();
+            nivel();
+        }
+
+        //funcion de muestreo de botones segun el nivel 
+        private void nivel()
+        {
+            if(Program.nivel == "Administrador")
+            {
+                
+            }
+            else
+            {
+                btn_GLibros.Visible = false;
+                btn_GUsuarios.Visible = false;
+                btn_GUL.Visible = false;
+            }
         }
 
         //codigo para abrir en un panel una nueva ventana
@@ -46,6 +63,13 @@ namespace Librery_Hub.Menu
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwmd, int wmsg, int wparam, int lparam);
 
+        private void mostrarusuarioactivo()
+        {
+            lbl_Nivel.Text = Program.nivel;
+            lbl_User.Text = Program.usuario;
+            lbl_Nivel.Visible = true;
+            lbl_User.Visible = true;
+        }
         private void btn_CloseCesion_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -98,6 +122,16 @@ namespace Librery_Hub.Menu
         private void btn_HPrestamos_Click(object sender, EventArgs e)
         {
             AbrirFromHijo(new Fm_HPrestamos());
+        }
+
+        private void Fm_Menu_Load(object sender, EventArgs e)
+        {
+            mostrarusuarioactivo();
+        }
+
+        private void btn_GUL_Click(object sender, EventArgs e)
+        {
+            AbrirFromHijo(new Fm_UsuariosB());
         }
     }
 }

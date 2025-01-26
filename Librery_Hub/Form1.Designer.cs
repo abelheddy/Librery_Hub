@@ -32,6 +32,7 @@
             this.btn_Close = new System.Windows.Forms.Button();
             this.btn_Mini = new System.Windows.Forms.Button();
             this.P_BaseLogin = new System.Windows.Forms.Panel();
+            this.laErrorlogeo = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -89,6 +90,7 @@
             this.P_BaseLogin.BackColor = System.Drawing.Color.Transparent;
             this.P_BaseLogin.BackgroundImage = global::Librery_Hub.Properties.Resources.fondologin;
             this.P_BaseLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.P_BaseLogin.Controls.Add(this.laErrorlogeo);
             this.P_BaseLogin.Controls.Add(this.pictureBox3);
             this.P_BaseLogin.Controls.Add(this.pictureBox2);
             this.P_BaseLogin.Controls.Add(this.label1);
@@ -102,6 +104,17 @@
             this.P_BaseLogin.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.P_BaseLogin.Size = new System.Drawing.Size(509, 534);
             this.P_BaseLogin.TabIndex = 0;
+            // 
+            // laErrorlogeo
+            // 
+            this.laErrorlogeo.AutoSize = true;
+            this.laErrorlogeo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.laErrorlogeo.ForeColor = System.Drawing.SystemColors.Control;
+            this.laErrorlogeo.Location = new System.Drawing.Point(104, 350);
+            this.laErrorlogeo.Name = "laErrorlogeo";
+            this.laErrorlogeo.Size = new System.Drawing.Size(57, 20);
+            this.laErrorlogeo.TabIndex = 11;
+            this.laErrorlogeo.Text = "label2";
             // 
             // pictureBox3
             // 
@@ -173,6 +186,7 @@
             this.txtPass.Size = new System.Drawing.Size(305, 13);
             this.txtPass.TabIndex = 2;
             this.txtPass.Text = "Password";
+            this.txtPass.UseSystemPasswordChar = true;
             this.txtPass.Enter += new System.EventHandler(this.txtPass_Enter);
             this.txtPass.Leave += new System.EventHandler(this.txtPass_Leave);
             // 
@@ -244,6 +258,7 @@
         private System.Windows.Forms.Panel Pl_movie;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label laErrorlogeo;
     }
 }
 
