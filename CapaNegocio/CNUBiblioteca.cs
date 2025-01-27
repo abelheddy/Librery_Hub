@@ -7,7 +7,7 @@ namespace CapaNegocio
     public class CNUBiblioteca
     {
         private readonly CDUBiblioteca cdBiblioteca = new CDUBiblioteca();
-        private readonly CDUBiblioteca datosUsuarios = new CDUBiblioteca();
+        
 
         // Método para registrar un nuevo usuario
         public string RegistrarUsuario(string nombre, string apellido, string correo, string telefono, string direccion)
@@ -27,6 +27,20 @@ namespace CapaNegocio
         public DataTable MostrarUsuarios()
         {
             return cdBiblioteca.MostrarUsuarios();
+        }
+        //metodo para eliminar un usuario
+        public void EliminarUsuario(string matricula)
+        {
+            try
+            {
+                // Llamamos a la capa de datos para realizar la eliminación
+                cdBiblioteca.EliminarUsuario(matricula);
+            }
+            catch (Exception ex)
+            {
+                // Propagar la excepción hacia la capa de presentación
+                throw new Exception("Error al eliminar el usuario desde la capa de negocio: " + ex.Message);
+            }
         }
     }
 }

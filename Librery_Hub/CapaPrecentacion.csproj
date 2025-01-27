@@ -108,6 +108,12 @@
     <Compile Include="UsuariosB\Fm_AUB.Designer.cs">
       <DependentUpon>Fm_AUB.cs</DependentUpon>
     </Compile>
+    <Compile Include="UsuariosB\Fm_EUB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsuariosB\Fm_EUB.Designer.cs">
+      <DependentUpon>Fm_EUB.cs</DependentUpon>
+    </Compile>
     <Compile Include="UsuariosB\Fm_UsuariosB.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +171,9 @@
     </Compile>
     <EmbeddedResource Include="UsuariosB\Fm_AUB.resx">
       <DependentUpon>Fm_AUB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsuariosB\Fm_EUB.resx">
+      <DependentUpon>Fm_EUB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsuariosB\Fm_UsuariosB.resx">
       <DependentUpon>Fm_UsuariosB.cs</DependentUpon>

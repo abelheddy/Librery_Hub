@@ -11,7 +11,7 @@ namespace CapaNegocio
     public class CNLogin
     {
         // Instancia la capa de datos para hacer uso de la clase CDLogin
-        private CDLogin objDato = new CDLogin();  // No es necesario pasar la cadena de conexión
+        CDLogin objDato = new CDLogin();  // No es necesario pasar la cadena de conexión
 
         // Variables privadas para almacenar los valores ingresados por el usuario
         private string _usuario;

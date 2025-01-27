@@ -12,10 +12,10 @@ namespace CapaDatos
     public class CDUBiblioteca
     {
         // Obtener la cadena de conexión desde app.config
-        private static readonly string connectionString = ConfigurationManager.ConnectionStrings["ConexionBiblioteca"].ConnectionString;
-
+        //private static string connectionString = ConfigurationManager.ConnectionStrings["ConexionBiblioteca"].ConnectionString;
+        private CDConexion conexion = new CDConexion();
         // Instancia de la conexión con la cadena configurada
-        private readonly CDConexion conexion = new CDConexion(connectionString);
+       // private readonly CDConexion conexion = new CDConexion(connectionString);
 
         // Método para registrar un usuario
         public void RegistrarUsuario(
@@ -105,6 +105,30 @@ namespace CapaDatos
                 throw new Exception("Error al mostrar usuarios: " +  ex.Message);
             }
             return tabla;
+        }
+        //metodo para eliminar un usuario 
+        public void EliminarUsuario(string matricula)
+        {
+            SqlConnection conn = conexion.AbrirConexion(); // Usamos el método de CDConexion para abrir la conexión
+            try
+            {
+                // Creamos el comando para ejecutar el procedimiento almacenado de eliminación
+                using (SqlCommand cmd = new SqlCommand("EliminarUsuario", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Matricula", matricula);
+
+                    cmd.ExecuteNonQuery(); // Ejecutar el procedimiento almacenado
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar el usuario: " + ex.Message);
+            }
+            finally
+            {
+                conexion.CerrarConexion(conn); // Aseguramos de cerrar la conexión después de realizar la operación
+            }
         }
     }
 }

@@ -35,6 +35,7 @@
             this.btn_Eliminar = new System.Windows.Forms.Button();
             this.btn_agregar = new System.Windows.Forms.Button();
             this.btn_Buscar = new System.Windows.Forms.Button();
+            this.btn_AlertE = new System.Windows.Forms.Button();
             this.pl_Controls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DatosUsuariosB)).BeginInit();
             this.SuspendLayout();
@@ -42,6 +43,7 @@
             // pl_Controls
             // 
             this.pl_Controls.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.pl_Controls.Controls.Add(this.btn_AlertE);
             this.pl_Controls.Controls.Add(this.btn_Editar);
             this.pl_Controls.Controls.Add(this.btn_Eliminar);
             this.pl_Controls.Controls.Add(this.btn_agregar);
@@ -60,18 +62,21 @@
             this.txt_buscar.Name = "txt_buscar";
             this.txt_buscar.Size = new System.Drawing.Size(494, 21);
             this.txt_buscar.TabIndex = 9;
-            this.txt_buscar.Text = "Usuario";
+            this.txt_buscar.Text = "Matricula";
+            this.txt_buscar.Enter += new System.EventHandler(this.txt_buscar_Enter);
+            this.txt_buscar.Leave += new System.EventHandler(this.txt_buscar_Leave);
             // 
             // dgv_DatosUsuariosB
             // 
             this.dgv_DatosUsuariosB.AllowUserToAddRows = false;
-            this.dgv_DatosUsuariosB.AllowUserToOrderColumns = true;
+            this.dgv_DatosUsuariosB.AllowUserToDeleteRows = false;
             this.dgv_DatosUsuariosB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_DatosUsuariosB.Location = new System.Drawing.Point(43, 80);
             this.dgv_DatosUsuariosB.Name = "dgv_DatosUsuariosB";
             this.dgv_DatosUsuariosB.ReadOnly = true;
             this.dgv_DatosUsuariosB.Size = new System.Drawing.Size(897, 352);
             this.dgv_DatosUsuariosB.TabIndex = 8;
+            this.dgv_DatosUsuariosB.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_DatosUsuariosB_CellClick);
             // 
             // btn_Editar
             // 
@@ -104,6 +109,7 @@
             this.btn_Eliminar.Size = new System.Drawing.Size(75, 74);
             this.btn_Eliminar.TabIndex = 1;
             this.btn_Eliminar.UseVisualStyleBackColor = false;
+            this.btn_Eliminar.Click += new System.EventHandler(this.btn_Eliminar_Click);
             // 
             // btn_agregar
             // 
@@ -138,6 +144,23 @@
             this.btn_Buscar.TabIndex = 10;
             this.btn_Buscar.UseVisualStyleBackColor = false;
             // 
+            // btn_AlertE
+            // 
+            this.btn_AlertE.BackColor = System.Drawing.Color.Transparent;
+            this.btn_AlertE.BackgroundImage = global::Librery_Hub.Properties.Resources.Delete;
+            this.btn_AlertE.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_AlertE.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_AlertE.FlatAppearance.BorderSize = 0;
+            this.btn_AlertE.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.btn_AlertE.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.btn_AlertE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_AlertE.Location = new System.Drawing.Point(321, 15);
+            this.btn_AlertE.Name = "btn_AlertE";
+            this.btn_AlertE.Size = new System.Drawing.Size(75, 74);
+            this.btn_AlertE.TabIndex = 3;
+            this.btn_AlertE.UseVisualStyleBackColor = false;
+            this.btn_AlertE.Click += new System.EventHandler(this.btn_AlertE_Click);
+            // 
             // Fm_UsuariosB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -168,5 +191,6 @@
         private System.Windows.Forms.Button btn_Buscar;
         private System.Windows.Forms.TextBox txt_buscar;
         private System.Windows.Forms.DataGridView dgv_DatosUsuariosB;
+        private System.Windows.Forms.Button btn_AlertE;
     }
 }

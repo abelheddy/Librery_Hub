@@ -11,46 +11,36 @@ namespace CapaDatos
 {
     class CDConexion
     {
-        // Declarar la conexión como privada y de solo lectura para mayor seguridad.
-        private readonly SqlConnection conexion;
+        // Cadena de conexión recuperada del archivo app.config
+        private static readonly string connectionString = ConfigurationManager.ConnectionStrings["ConexionBiblioteca"].ConnectionString;
 
-        // Constructor para inicializar la conexión. Permite flexibilidad si cambias la cadena de conexión.
-        // Constructor que recibe la cadena de conexión
-        public CDConexion(string connectionString)
-        {
-            conexion = new SqlConnection(connectionString);
-        }
-
-        // Método para abrir la conexión, con manejo de excepciones.
         public SqlConnection AbrirConexion()
         {
             try
             {
-                if (conexion.State == ConnectionState.Closed)
-                    conexion.Open();
+                SqlConnection conn = new SqlConnection(connectionString);
+                conn.Open();
+                return conn;
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                // Loguear errores o lanzar excepciones según sea necesario
                 throw new Exception("Error al abrir la conexión: " + ex.Message);
             }
-            return conexion;
         }
 
-        // Método para cerrar la conexión.
-        public SqlConnection CerrarConexion()
+        public void CerrarConexion(SqlConnection conn)
         {
             try
             {
-                if (conexion.State == ConnectionState.Open)
-                    conexion.Close();
+                if (conn.State == System.Data.ConnectionState.Open)
+                {
+                    conn.Close();
+                }
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                // Loguear errores o lanzar excepciones según sea necesario
                 throw new Exception("Error al cerrar la conexión: " + ex.Message);
             }
-            return conexion;
         }
     }
 }
