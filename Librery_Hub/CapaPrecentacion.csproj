@@ -88,6 +88,12 @@
     <Compile Include="Libros\Fm_Libros.Designer.cs">
       <DependentUpon>Fm_Libros.cs</DependentUpon>
     </Compile>
+    <Compile Include="Libros\ISBN\Fm_ExistenteLibro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Libros\ISBN\Fm_ExistenteLibro.Designer.cs">
+      <DependentUpon>Fm_ExistenteLibro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu\Fm_Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Libros\Fm_Libros.resx">
       <DependentUpon>Fm_Libros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Libros\ISBN\Fm_ExistenteLibro.resx">
+      <DependentUpon>Fm_ExistenteLibro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\Fm_Menu.resx">
       <DependentUpon>Fm_Menu.cs</DependentUpon>
