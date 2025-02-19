@@ -33,24 +33,26 @@ namespace CapaDatos
         }
 
         // Método para registrar un nuevo libro
-        public void RegistrarLibro(string titulo, string autor, string isbn, string editorial, DateTime anioPublicacion, string genero)
+        // 📌 Registrar un libro y su primera copia
+        public bool RegistrarLibro(string titulo, string autor, string isbn, string editorial, DateTime anoPublicacion, string genero)
         {
-            using (SqlConnection connection = conexion.AbrirConexion())
+            using (SqlConnection con = conexion.AbrirConexion())
             {
-                using (SqlCommand cmd = new SqlCommand("RegistrarLibro", connection))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@Titulo", titulo);
-                    cmd.Parameters.AddWithValue("@Autor", autor);
-                    cmd.Parameters.AddWithValue("@ISBN", isbn);
-                    cmd.Parameters.AddWithValue("@Editorial", editorial);
-                    cmd.Parameters.AddWithValue("@AnoPublicacion", anioPublicacion);
-                    cmd.Parameters.AddWithValue("@Genero", genero);
+                SqlCommand cmd = new SqlCommand("RegistrarLibro", con);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.ExecuteNonQuery();
-                }
+                // Parámetros del procedimiento almacenado
+                cmd.Parameters.AddWithValue("@Titulo", titulo);
+                cmd.Parameters.AddWithValue("@Autor", autor);
+                cmd.Parameters.AddWithValue("@ISBN", isbn);
+                cmd.Parameters.AddWithValue("@Editorial", editorial);
+                cmd.Parameters.AddWithValue("@AnoPublicacion", anoPublicacion);
+                cmd.Parameters.AddWithValue("@Genero", genero);
+
+                return cmd.ExecuteNonQuery() > 0;
             }
         }
+
         // Método para agregar una nueva copia de un libro ya registrado
         public void AgregarCopiaLibro(int idLibro)
         {
@@ -62,6 +64,21 @@ namespace CapaDatos
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@IDLibro", idLibro);
                     cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        public int ObtenerIDLibroPorISBN(string isbn)
+        {
+            using (SqlConnection connection = conexion.AbrirConexion())
+            {
+               
+                using (SqlCommand cmd = new SqlCommand("ObtenerIDLibroPorISBN", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ISBN", isbn);
+
+                    object result = cmd.ExecuteScalar();
+                    return result != null ? Convert.ToInt32(result) : -1;
                 }
             }
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Librery_Hub.Libros.ISBN;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,7 +40,7 @@ namespace Librery_Hub.Libros
 
         private void btn_agregar_Click(object sender, EventArgs e)
         {
-            Fm_ALibro addLi = new Fm_ALibro();
+            Fm_ExistenteLibro addLi = new Fm_ExistenteLibro();
             addLi.Show();
         }
 

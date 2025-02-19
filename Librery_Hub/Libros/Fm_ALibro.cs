@@ -14,9 +14,15 @@ namespace Librery_Hub.Libros
 {
     public partial class Fm_ALibro : Form
     {
-        public Fm_ALibro()
+        // 📌 Instancia de la capa de negocio
+        private CNLibros cnLibros = new CNLibros();
+        private string isbnRecibido;
+        public Fm_ALibro(string isbn)
         {
             InitializeComponent();
+            isbnRecibido = isbn;
+            TxtISBN.Text = isbnRecibido; // Asignar el ISBN al TextBox
+            TxtISBN.ReadOnly = true; // Para evitar que el usuario lo edite
         }
 
         // codigo para mover la ventana
@@ -84,19 +90,19 @@ namespace Librery_Hub.Libros
 
         private void txt_genero_Enter(object sender, EventArgs e)
         {     
-            if (txt_genero.Text == "Género")
+            if (txt_Genero.Text == "Género")
             {
-                txt_genero.Text = "";
-                txt_genero.ForeColor = Color.LightGray;
+                txt_Genero.Text = "";
+                txt_Genero.ForeColor = Color.LightGray;
             }
         }
 
         private void txt_genero_Leave(object sender, EventArgs e)
         {
-            if (txt_genero.Text == "")
+            if (txt_Genero.Text == "")
             {
-                txt_genero.Text = "Género";
-                txt_genero.ForeColor = Color.LightGray;
+                txt_Genero.Text = "Género";
+                txt_Genero.ForeColor = Color.LightGray;
             }
         }
 
@@ -156,7 +162,30 @@ namespace Librery_Hub.Libros
 
         private void btn_ALibro_Click(object sender, EventArgs e)
         {
-            
+            // 📌 Validación de datos
+            if (TxtISBN.Text == "ISBN" || string.IsNullOrWhiteSpace(TxtISBN.Text) ||
+                txt_Titulo.Text == "Título" || string.IsNullOrWhiteSpace(txt_Titulo.Text) ||
+                txt_Titulo.Text == "Autor" || string.IsNullOrWhiteSpace(txt_Titulo.Text) ||
+                txt_Editorial.Text == "Editorial" || string.IsNullOrWhiteSpace(txt_Editorial.Text) ||
+                txt_Genero.Text == "Género" || string.IsNullOrWhiteSpace(txt_Genero.Text))
+            {
+                MessageBox.Show("Por favor, completa todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            // 📌 Capturar datos
+            string titulo = txt_Titulo.Text.Trim();
+            string autor = txt_Titulo.Text.Trim();
+            string isbn = TxtISBN.Text.Trim();
+            string editorial = txt_Editorial.Text.Trim();
+            string genero = txt_Genero.Text.Trim();
+            DateTime anoPublicacion = Dtp_Apublicacion.Value;
+            // 📌 Registrar el libro
+            bool libroRegistrado = cnLibros.RegistrarLibro(titulo, autor, isbn, editorial, anoPublicacion, genero);
+
+            if (libroRegistrado)
+                MessageBox.Show("Libro registrado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("Error al registrar el libro.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

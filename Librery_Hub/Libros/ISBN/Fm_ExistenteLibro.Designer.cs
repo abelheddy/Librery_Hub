@@ -33,6 +33,9 @@
             this.btn_Close = new System.Windows.Forms.Button();
             this.btn_Mini = new System.Windows.Forms.Button();
             this.Pl_movie = new System.Windows.Forms.Panel();
+            this.Txt_BuscarISBN = new System.Windows.Forms.TextBox();
+            this.Btn_Buscar = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.Pl_movie.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,6 +44,8 @@
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImage = global::Librery_Hub.Properties.Resources.fondo;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.Btn_Buscar);
+            this.panel1.Controls.Add(this.Txt_BuscarISBN);
             this.panel1.Location = new System.Drawing.Point(12, 37);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(776, 401);
@@ -96,6 +101,23 @@
             this.Pl_movie.TabIndex = 7;
             this.Pl_movie.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Pl_movie_MouseDown);
             // 
+            // Txt_BuscarISBN
+            // 
+            this.Txt_BuscarISBN.Location = new System.Drawing.Point(70, 87);
+            this.Txt_BuscarISBN.Name = "Txt_BuscarISBN";
+            this.Txt_BuscarISBN.Size = new System.Drawing.Size(265, 20);
+            this.Txt_BuscarISBN.TabIndex = 0;
+            // 
+            // Btn_Buscar
+            // 
+            this.Btn_Buscar.Location = new System.Drawing.Point(495, 87);
+            this.Btn_Buscar.Name = "Btn_Buscar";
+            this.Btn_Buscar.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Buscar.TabIndex = 1;
+            this.Btn_Buscar.Text = "button1";
+            this.Btn_Buscar.UseVisualStyleBackColor = true;
+            this.Btn_Buscar.Click += new System.EventHandler(this.Btn_Buscar_Click);
+            // 
             // Fm_ExistenteLibro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -108,6 +130,8 @@
             this.Name = "Fm_ExistenteLibro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fm_ExistenteLibro";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.Pl_movie.ResumeLayout(false);
             this.Pl_movie.PerformLayout();
             this.ResumeLayout(false);
@@ -121,5 +145,7 @@
         private System.Windows.Forms.Button btn_Close;
         private System.Windows.Forms.Button btn_Mini;
         private System.Windows.Forms.Panel Pl_movie;
+        private System.Windows.Forms.Button Btn_Buscar;
+        private System.Windows.Forms.TextBox Txt_BuscarISBN;
     }
 }

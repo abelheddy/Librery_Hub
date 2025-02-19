@@ -7,7 +7,27 @@ using CapaDatos;
 
 namespace CapaNegocio
 {
-    internal class CNLibros
+    public class CNLibros
     {
+        private CDLibros datosLibros = new CDLibros();
+
+        public int VerificarISBN(string isbn)
+        {
+            return datosLibros.VerificarISBN(isbn);
+        }
+
+        public bool RegistrarLibro(string titulo, string autor, string isbn, string editorial, DateTime anoPublicacion, string genero)
+        {
+            return datosLibros.RegistrarLibro(titulo, autor, isbn, editorial, anoPublicacion, genero);
+        }
+
+        public void AgregarCopiaLibro(int idLibro)
+        {
+            datosLibros.AgregarCopiaLibro(idLibro);
+        }
+        public int ObtenerIDLibroPorISBN(string isbn)
+        {
+            return datosLibros.ObtenerIDLibroPorISBN(isbn);
+        }
     }
 }

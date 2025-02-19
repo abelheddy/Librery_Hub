@@ -33,7 +33,7 @@
             this.btn_Mini = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.txtISBN = new System.Windows.Forms.TextBox();
+            this.TxtISBN = new System.Windows.Forms.TextBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_Cancel = new System.Windows.Forms.Button();
@@ -43,10 +43,10 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.Dtp_Apublicacion = new System.Windows.Forms.DateTimePicker();
             this.txt_Editorial = new System.Windows.Forms.TextBox();
             this.txt_APublicacion = new System.Windows.Forms.TextBox();
-            this.txt_genero = new System.Windows.Forms.TextBox();
+            this.txt_Genero = new System.Windows.Forms.TextBox();
             this.txt_Autor = new System.Windows.Forms.TextBox();
             this.txt_Titulo = new System.Windows.Forms.TextBox();
             this.Pl_movie.SuspendLayout();
@@ -105,7 +105,7 @@
             this.panel1.BackgroundImage = global::Librery_Hub.Properties.Resources.fondo;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.pictureBox6);
-            this.panel1.Controls.Add(this.txtISBN);
+            this.panel1.Controls.Add(this.TxtISBN);
             this.panel1.Controls.Add(this.pictureBox7);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btn_Cancel);
@@ -115,10 +115,10 @@
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.Dtp_Apublicacion);
             this.panel1.Controls.Add(this.txt_Editorial);
             this.panel1.Controls.Add(this.txt_APublicacion);
-            this.panel1.Controls.Add(this.txt_genero);
+            this.panel1.Controls.Add(this.txt_Genero);
             this.panel1.Controls.Add(this.txt_Autor);
             this.panel1.Controls.Add(this.txt_Titulo);
             this.panel1.Location = new System.Drawing.Point(52, 51);
@@ -137,19 +137,19 @@
             this.pictureBox6.TabIndex = 18;
             this.pictureBox6.TabStop = false;
             // 
-            // txtISBN
+            // TxtISBN
             // 
-            this.txtISBN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(48)))));
-            this.txtISBN.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtISBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtISBN.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtISBN.Location = new System.Drawing.Point(139, 264);
-            this.txtISBN.Name = "txtISBN";
-            this.txtISBN.Size = new System.Drawing.Size(449, 19);
-            this.txtISBN.TabIndex = 17;
-            this.txtISBN.Text = "ISBN";
-            this.txtISBN.Enter += new System.EventHandler(this.txtISBN_Enter);
-            this.txtISBN.Leave += new System.EventHandler(this.txtISBN_Leave);
+            this.TxtISBN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(48)))));
+            this.TxtISBN.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtISBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtISBN.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.TxtISBN.Location = new System.Drawing.Point(139, 264);
+            this.TxtISBN.Name = "TxtISBN";
+            this.TxtISBN.Size = new System.Drawing.Size(449, 19);
+            this.TxtISBN.TabIndex = 17;
+            this.TxtISBN.Text = "ISBN";
+            this.TxtISBN.Enter += new System.EventHandler(this.txtISBN_Enter);
+            this.TxtISBN.Leave += new System.EventHandler(this.txtISBN_Leave);
             // 
             // pictureBox7
             // 
@@ -259,12 +259,12 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
-            // dateTimePicker1
+            // Dtp_Apublicacion
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(388, 327);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 6;
+            this.Dtp_Apublicacion.Location = new System.Drawing.Point(388, 327);
+            this.Dtp_Apublicacion.Name = "Dtp_Apublicacion";
+            this.Dtp_Apublicacion.Size = new System.Drawing.Size(200, 20);
+            this.Dtp_Apublicacion.TabIndex = 6;
             // 
             // txt_Editorial
             // 
@@ -294,19 +294,19 @@
             this.txt_APublicacion.Enter += new System.EventHandler(this.txt_APublicacion_Enter);
             this.txt_APublicacion.Leave += new System.EventHandler(this.txt_APublicacion_Leave);
             // 
-            // txt_genero
+            // txt_Genero
             // 
-            this.txt_genero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(48)))));
-            this.txt_genero.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_genero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_genero.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txt_genero.Location = new System.Drawing.Point(139, 203);
-            this.txt_genero.Name = "txt_genero";
-            this.txt_genero.Size = new System.Drawing.Size(449, 19);
-            this.txt_genero.TabIndex = 2;
-            this.txt_genero.Text = "Género";
-            this.txt_genero.Enter += new System.EventHandler(this.txt_genero_Enter);
-            this.txt_genero.Leave += new System.EventHandler(this.txt_genero_Leave);
+            this.txt_Genero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(48)))));
+            this.txt_Genero.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_Genero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Genero.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txt_Genero.Location = new System.Drawing.Point(139, 203);
+            this.txt_Genero.Name = "txt_Genero";
+            this.txt_Genero.Size = new System.Drawing.Size(449, 19);
+            this.txt_Genero.TabIndex = 2;
+            this.txt_Genero.Text = "Género";
+            this.txt_Genero.Enter += new System.EventHandler(this.txt_genero_Enter);
+            this.txt_Genero.Leave += new System.EventHandler(this.txt_genero_Leave);
             // 
             // txt_Autor
             // 
@@ -370,10 +370,10 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txt_Titulo;
         private System.Windows.Forms.TextBox txt_Autor;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker Dtp_Apublicacion;
         private System.Windows.Forms.TextBox txt_Editorial;
         private System.Windows.Forms.TextBox txt_APublicacion;
-        private System.Windows.Forms.TextBox txt_genero;
+        private System.Windows.Forms.TextBox txt_Genero;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox4;
@@ -384,6 +384,6 @@
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.TextBox txtISBN;
+        private System.Windows.Forms.TextBox TxtISBN;
     }
 }
