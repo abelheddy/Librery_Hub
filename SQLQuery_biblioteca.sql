@@ -129,7 +129,7 @@ CREATE TABLE Libros (
 );
 -- copias de libros 
 CREATE TABLE CopiasLibros (
-    IDCopia INT PRIMARY KEY IDENTITY(1,1), -- Identificador único de la copia
+    IDCopia INT PRIMARY KEY IDENTITY(1,1) -- Identificador único de la copia
     IDLibro NVARCHAR(20), -- Relación con el libro de la tabla Libros
     FechaAdquisicion DATETIME DEFAULT GETDATE(), -- Fecha de adquisición de la copia
     Estado NVARCHAR(50) DEFAULT 'Disponible', -- Estado de la copia (Disponible, Prestada, etc.)
@@ -246,11 +246,32 @@ GO
 
 --procedimiento de almacenado para reguistrar copia de libro
 CREATE PROCEDURE AgregarCopiaLibro
-    @IDLibro INT
+    @IDLibro Nvarchar(20)
 AS
 BEGIN
     INSERT INTO CopiasLibros (IDLibro)
     VALUES (@IDLibro);
+END;
+GO
+
+-- mostrar  libros
+
+CREATE PROCEDURE MostrarLibrosYCopias
+AS
+BEGIN
+    -- Consulta para obtener los libros y sus copias
+    SELECT 
+        L.IDLibro,
+        L.Titulo,
+        L.Autor,
+        C.Estado AS Estado_Copia,
+        C.FechaAdquisicion
+    FROM 
+        Libros L
+    JOIN 
+        CopiasLibros C ON L.IDLibro = C.IDLibro
+    ORDER BY 
+        L.Titulo;  -- Puedes ordenar como prefieras
 END;
 GO
 
