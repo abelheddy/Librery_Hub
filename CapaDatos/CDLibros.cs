@@ -69,16 +69,73 @@ namespace CapaDatos
         }
         public int ObtenerIDLibroPorISBN(string isbn)
         {
-            using (SqlConnection connection = conexion.AbrirConexion())
+            SqlConnection connection = null; // Declarar la conexión
+            try
             {
-               
-                using (SqlCommand cmd = new SqlCommand("ObtenerIDLibroPorISBN", connection))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@ISBN", isbn);
+                // Validar el formato del ISBN
+                //if (!ValidarISBN(isbn))
+                //{
+                    //throw new Exception("El ISBN no tiene el formato correcto.");
+                //}
 
-                    object result = cmd.ExecuteScalar();
-                    return result != null ? Convert.ToInt32(result) : -1;
+                // Abrir la conexión usando tu clase CDConexion
+                connection = conexion.AbrirConexion();
+
+                SqlCommand cmd = new SqlCommand("ObtenerIDLibroPorISBN", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                // Asegurarse de que el ISBN sea pasado correctamente como parámetro
+                cmd.Parameters.AddWithValue("@ISBN", isbn);
+
+                // Ejecutar la consulta y obtener el resultado como un string
+                object result = cmd.ExecuteScalar();
+
+                // Verifica si el resultado es null y devuelve el ID del libro como string
+                // Comprobar si el resultado no es null o DBNull
+                if (result != null && result != DBNull.Value)
+                {
+                    return result.ToString();
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error en la capa de negocio: Error al obtener ID del libro por ISBN: " + ex.Message);
+            }
+            finally
+            {
+                // Asegurarse de cerrar la conexión
+                if (connection != null)
+                {
+                    conexion.CerrarConexion(connection); // Cerrar la conexión
+                }
+            }
+        }
+
+        //mostrar libros y copas de los libros
+        public DataTable MostrarLibrosYCopias()
+        {
+            using (SqlConnection connection = conexion.AbrirConexion()) 
+            { 
+                try
+                {
+                    // Crear el comando que ejecuta el procedimiento almacenado
+                    SqlCommand cmd = new SqlCommand("MostrarLibrosYCopias", connection);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Crear el DataAdapter para llenar el DataTable con los resultados
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    return dt;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al obtener los libros y copias: " + ex.Message);
                 }
             }
         }

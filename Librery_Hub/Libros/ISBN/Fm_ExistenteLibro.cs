@@ -40,7 +40,7 @@ namespace Librery_Hub.Libros.ISBN
 
         private void Btn_Buscar_Click(object sender, EventArgs e)
         {
-            string isbnIngresado = Txt_BuscarISBN.Text.Trim();
+            string isbnIngresado = Txt_BuscarISBN.Text.Trim();// Obtener el ISBN como cadena
 
             if (string.IsNullOrEmpty(isbnIngresado))
             {
@@ -57,7 +57,7 @@ namespace Librery_Hub.Libros.ISBN
             }
             else if (resultado == 2) // 📚 YA existe, agregar nueva copia
             {
-                int idLibro = negocioLibros.ObtenerIDLibroPorISBN(isbnIngresado);
+                string idLibro = negocioLibros.ObtenerIDLibroPorISBN(isbnIngresado);
                 if (idLibro != -1)
                 {
                     negocioLibros.AgregarCopiaLibro(idLibro);

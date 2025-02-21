@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvLibrosYCopias = new System.Windows.Forms.DataGridView();
             this.txt_Buscar = new System.Windows.Forms.TextBox();
             this.pl_Controls = new System.Windows.Forms.Panel();
+            this.btn_EditAlert = new System.Windows.Forms.Button();
             this.btn_Eliminiar_Msg = new System.Windows.Forms.Button();
             this.btn_Editar = new System.Windows.Forms.Button();
             this.btn_Eliminar = new System.Windows.Forms.Button();
             this.btn_agregar = new System.Windows.Forms.Button();
             this.btn_Buscar = new System.Windows.Forms.Button();
-            this.btn_EditAlert = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLibrosYCopias)).BeginInit();
             this.pl_Controls.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvLibrosYCopias
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(35, 87);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(897, 352);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvLibrosYCopias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLibrosYCopias.Location = new System.Drawing.Point(35, 87);
+            this.dgvLibrosYCopias.Name = "dgvLibrosYCopias";
+            this.dgvLibrosYCopias.Size = new System.Drawing.Size(897, 352);
+            this.dgvLibrosYCopias.TabIndex = 0;
             // 
             // txt_Buscar
             // 
@@ -75,6 +75,20 @@
             this.pl_Controls.Name = "pl_Controls";
             this.pl_Controls.Size = new System.Drawing.Size(718, 105);
             this.pl_Controls.TabIndex = 3;
+            // 
+            // btn_EditAlert
+            // 
+            this.btn_EditAlert.BackgroundImage = global::Librery_Hub.Properties.Resources.Editar_libro;
+            this.btn_EditAlert.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_EditAlert.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_EditAlert.FlatAppearance.BorderSize = 0;
+            this.btn_EditAlert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_EditAlert.Location = new System.Drawing.Point(583, 27);
+            this.btn_EditAlert.Name = "btn_EditAlert";
+            this.btn_EditAlert.Size = new System.Drawing.Size(60, 50);
+            this.btn_EditAlert.TabIndex = 4;
+            this.btn_EditAlert.UseVisualStyleBackColor = true;
+            this.btn_EditAlert.Click += new System.EventHandler(this.btn_EditAlert_Click);
             // 
             // btn_Eliminiar_Msg
             // 
@@ -149,20 +163,6 @@
             this.btn_Buscar.TabIndex = 2;
             this.btn_Buscar.UseVisualStyleBackColor = true;
             // 
-            // btn_EditAlert
-            // 
-            this.btn_EditAlert.BackgroundImage = global::Librery_Hub.Properties.Resources.Editar_libro;
-            this.btn_EditAlert.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_EditAlert.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_EditAlert.FlatAppearance.BorderSize = 0;
-            this.btn_EditAlert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_EditAlert.Location = new System.Drawing.Point(583, 27);
-            this.btn_EditAlert.Name = "btn_EditAlert";
-            this.btn_EditAlert.Size = new System.Drawing.Size(60, 50);
-            this.btn_EditAlert.TabIndex = 4;
-            this.btn_EditAlert.UseVisualStyleBackColor = true;
-            this.btn_EditAlert.Click += new System.EventHandler(this.btn_EditAlert_Click);
-            // 
             // Fm_Libros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -172,11 +172,12 @@
             this.Controls.Add(this.pl_Controls);
             this.Controls.Add(this.btn_Buscar);
             this.Controls.Add(this.txt_Buscar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvLibrosYCopias);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Fm_Libros";
             this.Text = "Fm_Libros";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.Fm_Libros_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLibrosYCopias)).EndInit();
             this.pl_Controls.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -185,7 +186,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvLibrosYCopias;
         private System.Windows.Forms.TextBox txt_Buscar;
         private System.Windows.Forms.Button btn_Buscar;
         private System.Windows.Forms.Panel pl_Controls;

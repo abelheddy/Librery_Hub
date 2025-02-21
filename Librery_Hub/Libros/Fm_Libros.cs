@@ -1,4 +1,5 @@
-﻿using Librery_Hub.Libros.ISBN;
+﻿using CapaNegocio;
+using Librery_Hub.Libros.ISBN;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +20,8 @@ namespace Librery_Hub.Libros
             btn_Eliminiar_Msg.Visible = true;
             btn_EditAlert.Visible = true;
         }
-
+        // linea para conectarse con la capa de negocio 
+        private CNLibros negocioLibros = new CNLibros();
         private void txt_Buscar_Enter(object sender, EventArgs e)
         {
             if (txt_Buscar.Text == "Libro")
@@ -67,6 +69,22 @@ namespace Librery_Hub.Libros
             Fm_EditAlert alert = new Fm_EditAlert();
             alert.Show();
             btn_EditAlert.Visible = false;
+        }
+
+        private void Fm_Libros_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                // Obtener los datos de los libros y copias desde la capa de negocio
+                var dtLibros = negocioLibros.MostrarLibrosYCopias();
+
+                // Asignar los datos al DataGridView
+                dgvLibrosYCopias.DataSource = dtLibros;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos: " + ex.Message);
+            }
         }
     }
 }

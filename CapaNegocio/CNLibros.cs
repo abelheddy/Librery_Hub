@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +28,28 @@ namespace CapaNegocio
         }
         public int ObtenerIDLibroPorISBN(string isbn)
         {
-            return datosLibros.ObtenerIDLibroPorISBN(isbn);
+            try
+            {
+                // Llamar al método de la capa de datos para obtener el ID del libro por ISBN
+                return datosLibros.ObtenerIDLibroPorISBN(isbn);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error en la capa de negocio: " + ex.Message);
+            }
+        }
+
+        public DataTable MostrarLibrosYCopias()
+        {
+            try
+            {
+                // Llamamos al método de la capa de datos para obtener el DataTable
+                return datosLibros.MostrarLibrosYCopias();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error en la capa de negocio: " + ex.Message);
+            }
         }
     }
 }
