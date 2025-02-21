@@ -277,5 +277,11 @@
   <ItemGroup>
     <None Include="Resources\icons8-knowledge-64.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EAN-13-ISBN-13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EAN-13-ISBN-131.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

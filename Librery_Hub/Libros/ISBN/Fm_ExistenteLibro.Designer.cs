@@ -28,40 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.Pl_movie = new System.Windows.Forms.Panel();
             this.btn_Close = new System.Windows.Forms.Button();
             this.btn_Mini = new System.Windows.Forms.Button();
-            this.Pl_movie = new System.Windows.Forms.Panel();
-            this.Txt_BuscarISBN = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Btn_Buscar = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.Txt_BuscarISBN = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.Pl_movie.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.BackgroundImage = global::Librery_Hub.Properties.Resources.fondo;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.Btn_Buscar);
-            this.panel1.Controls.Add(this.Txt_BuscarISBN);
-            this.panel1.Location = new System.Drawing.Point(12, 37);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(776, 401);
-            this.panel1.TabIndex = 6;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(330, 8);
+            this.label2.Location = new System.Drawing.Point(311, 8);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 18);
+            this.label2.Size = new System.Drawing.Size(180, 18);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Notificación";
+            this.label2.Text = "BUSQUEDA DEL ISBN";
             this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label2_MouseDown);
+            // 
+            // Pl_movie
+            // 
+            this.Pl_movie.Controls.Add(this.label2);
+            this.Pl_movie.Controls.Add(this.btn_Close);
+            this.Pl_movie.Controls.Add(this.btn_Mini);
+            this.Pl_movie.Location = new System.Drawing.Point(-4, 1);
+            this.Pl_movie.Name = "Pl_movie";
+            this.Pl_movie.Size = new System.Drawing.Size(807, 30);
+            this.Pl_movie.TabIndex = 7;
+            this.Pl_movie.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Pl_movie_MouseDown);
             // 
             // btn_Close
             // 
@@ -90,33 +92,61 @@
             this.btn_Mini.TabIndex = 1;
             this.btn_Mini.UseVisualStyleBackColor = false;
             // 
-            // Pl_movie
+            // panel1
             // 
-            this.Pl_movie.Controls.Add(this.label2);
-            this.Pl_movie.Controls.Add(this.btn_Close);
-            this.Pl_movie.Controls.Add(this.btn_Mini);
-            this.Pl_movie.Location = new System.Drawing.Point(-4, 1);
-            this.Pl_movie.Name = "Pl_movie";
-            this.Pl_movie.Size = new System.Drawing.Size(807, 30);
-            this.Pl_movie.TabIndex = 7;
-            this.Pl_movie.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Pl_movie_MouseDown);
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackgroundImage = global::Librery_Hub.Properties.Resources.fondo;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.Btn_Buscar);
+            this.panel1.Controls.Add(this.Txt_BuscarISBN);
+            this.panel1.Location = new System.Drawing.Point(12, 37);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(776, 401);
+            this.panel1.TabIndex = 6;
             // 
-            // Txt_BuscarISBN
+            // pictureBox1
             // 
-            this.Txt_BuscarISBN.Location = new System.Drawing.Point(70, 87);
-            this.Txt_BuscarISBN.Name = "Txt_BuscarISBN";
-            this.Txt_BuscarISBN.Size = new System.Drawing.Size(265, 20);
-            this.Txt_BuscarISBN.TabIndex = 0;
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Image = global::Librery_Hub.Properties.Resources.EAN_13_ISBN_131;
+            this.pictureBox1.Location = new System.Drawing.Point(298, 62);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(194, 121);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // Btn_Buscar
             // 
-            this.Btn_Buscar.Location = new System.Drawing.Point(495, 87);
+            this.Btn_Buscar.BackgroundImage = global::Librery_Hub.Properties.Resources.Search_02;
+            this.Btn_Buscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Btn_Buscar.FlatAppearance.BorderSize = 0;
+            this.Btn_Buscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Btn_Buscar.Location = new System.Drawing.Point(564, 202);
             this.Btn_Buscar.Name = "Btn_Buscar";
-            this.Btn_Buscar.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Buscar.Size = new System.Drawing.Size(45, 41);
             this.Btn_Buscar.TabIndex = 1;
-            this.Btn_Buscar.Text = "button1";
             this.Btn_Buscar.UseVisualStyleBackColor = true;
             this.Btn_Buscar.Click += new System.EventHandler(this.Btn_Buscar_Click);
+            // 
+            // Txt_BuscarISBN
+            // 
+            this.Txt_BuscarISBN.Location = new System.Drawing.Point(145, 213);
+            this.Txt_BuscarISBN.Name = "Txt_BuscarISBN";
+            this.Txt_BuscarISBN.Size = new System.Drawing.Size(353, 20);
+            this.Txt_BuscarISBN.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(142, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(467, 18);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Introdusca el ISBN del libro para buscar en la Base De Datos";
             // 
             // Fm_ExistenteLibro
             // 
@@ -130,10 +160,11 @@
             this.Name = "Fm_ExistenteLibro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fm_ExistenteLibro";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.Pl_movie.ResumeLayout(false);
             this.Pl_movie.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -147,5 +178,7 @@
         private System.Windows.Forms.Panel Pl_movie;
         private System.Windows.Forms.Button Btn_Buscar;
         private System.Windows.Forms.TextBox Txt_BuscarISBN;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
