@@ -91,25 +91,7 @@ BEGIN
 END;
 GO
 
---creacion de tablas de libros
-CREATE TABLE Libros (
-    IDLibro INT PRIMARY KEY IDENTITY(1,1), -- Identificador único del libro
-    Titulo NVARCHAR(255) NOT NULL,
-    Autor NVARCHAR(255) NOT NULL,
-    ISBN NVARCHAR(20) UNIQUE NOT NULL, -- Número de ISBN único
-    Editorial NVARCHAR(255) NOT NULL,
-    AnoPublicacion INT,
-    Genero NVARCHAR(100),
-    FechaRegistro DATETIME DEFAULT GETDATE() -- Fecha de registro del libro
-);
--- copias de libros 
-CREATE TABLE CopiasLibros (
-    IDCopia INT PRIMARY KEY IDENTITY(1,1), -- Identificador único de la copia
-    IDLibro INT, -- Relación con el libro de la tabla Libros
-    FechaAdquisicion DATETIME DEFAULT GETDATE(), -- Fecha de adquisición de la copia
-    Estado NVARCHAR(50) DEFAULT 'Disponible', -- Estado de la copia (Disponible, Prestada, etc.)
-    FOREIGN KEY (IDLibro) REFERENCES Libros(IDLibro) -- Relación con la tabla Libros
-);
+
 --procedimiento para mostrar los datos 
 CREATE PROCEDURE MostrarUsuarios
 AS
@@ -134,31 +116,145 @@ BEGIN
     DELETE FROM UsuariosBiblioteca WHERE Matricula = @Matricula;
 END
 
+--creacion de tablas de libros
+CREATE TABLE Libros (
+    IDLibro NVARCHAR(20) PRIMARY KEY, -- Identificador único del libro
+    Titulo NVARCHAR(255) NOT NULL,
+    Autor NVARCHAR(255) NOT NULL,
+    ISBN NVARCHAR(20) UNIQUE NOT NULL, -- Número de ISBN único
+    Editorial NVARCHAR(255) NOT NULL,
+    AnoPublicacion DATETIME,
+    Genero NVARCHAR(100),
+    FechaRegistro DATETIME DEFAULT GETDATE() -- Fecha de registro del libro
+);
+-- copias de libros 
+CREATE TABLE CopiasLibros (
+    IDCopia INT PRIMARY KEY IDENTITY(1,1), -- Identificador único de la copia
+    IDLibro NVARCHAR(20), -- Relación con el libro de la tabla Libros
+    FechaAdquisicion DATETIME DEFAULT GETDATE(), -- Fecha de adquisición de la copia
+    Estado NVARCHAR(50) DEFAULT 'Disponible', -- Estado de la copia (Disponible, Prestada, etc.)
+    FOREIGN KEY (IDLibro) REFERENCES Libros(IDLibro) -- Relación con la tabla Libros
+);
 
+--procedimiento almacenado para gener ID unico de libro
+CREATE PROCEDURE GenerarIDLibro
+    @NuevoIDLibro NVARCHAR(10) OUTPUT
+AS
+BEGIN
+    DECLARE @UltimoIDLibro NVARCHAR(10);
+
+    -- Obtener el último ID de libro registrado
+    SELECT TOP 1 @UltimoIDLibro = IDLibro
+    FROM Libros
+    ORDER BY IDLibro DESC;
+
+    -- Si no hay ningún ID registrado, asignar el valor inicial
+    IF @UltimoIDLibro IS NULL
+    BEGIN
+        SET @NuevoIDLibro = 'LIB-000001';
+    END
+    ELSE
+    BEGIN
+        -- Extraer el número y sumarle 1
+        SET @NuevoIDLibro = 'LIB-' + RIGHT('000000' + CAST(CAST(SUBSTRING(@UltimoIDLibro, 5, LEN(@UltimoIDLibro)) AS INT) + 1 AS NVARCHAR(6)), 6);
+    END
+END;
+GO
 
 --procedimiento de almacenado para reguistrar libro 
-CREATE PROCEDURE InsertarLibro
+CREATE PROCEDURE RegistrarLibro
     @Titulo NVARCHAR(255),
     @Autor NVARCHAR(255),
     @ISBN NVARCHAR(20),
     @Editorial NVARCHAR(255),
-    @AnoPublicacion INT,
+    @AnoPublicacion DATETIME,
     @Genero NVARCHAR(100)
 AS
 BEGIN
-    INSERT INTO Libros (Titulo, Autor, ISBN, Editorial, AnoPublicacion, Genero)
-    VALUES (@Titulo, @Autor, @ISBN, @Editorial, @AnoPublicacion, @Genero);
-END;
+    DECLARE @NuevoIDLibro NVARCHAR(10);
 
---procedimiento de almacenado para reguistrar copia de libro
-CREATE PROCEDURE InsertarCopiaLibro
-    @IDLibro INT,
-    @Estado NVARCHAR(50)
+    -- Iniciar una transacción para asegurar consistencia en ambas inserciones
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        -- Generar el ID único del libro
+        EXEC GenerarIDLibro @NuevoIDLibro OUTPUT;
+
+        -- Insertar el nuevo libro en la tabla Libros
+        INSERT INTO Libros (IDLibro, Titulo, Autor, ISBN, Editorial, AnoPublicacion, Genero, FechaRegistro)
+        VALUES (@NuevoIDLibro, @Titulo, @Autor, @ISBN, @Editorial, @AnoPublicacion, @Genero, GETDATE());
+
+        -- Insertar una copia del libro en la tabla CopiasLibros
+        INSERT INTO CopiasLibros (IDLibro, FechaAdquisicion, Estado)
+        VALUES (@NuevoIDLibro, GETDATE(), 'Disponible');
+
+        -- Confirmar la transacción
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        -- En caso de error, revertir la transacción
+        ROLLBACK TRANSACTION;
+        THROW; -- Relanza el error para su manejo
+    END CATCH;
+END;
+GO
+
+
+--busca y verifica si existe el ISBN en la base de datos
+CREATE PROCEDURE VerificarISBN
+    @ISBN NVARCHAR(20),
+    @ExisteLibro INT OUTPUT
 AS
 BEGIN
-    INSERT INTO CopiasLibros (IDLibro, Estado)
-    VALUES (@IDLibro, @Estado);
+    SELECT @ExisteLibro = COUNT(*) FROM Libros WHERE ISBN = @ISBN;
+    IF @ExisteLibro = 0
+        SET @ExisteLibro = 1;
+    ELSE
+        SET @ExisteLibro = 2;
 END;
+GO
+
+--agregar una nueva copia si ya existe el ISBN
+--este procedimiento almacenado ya no se ocupo
+CREATE PROCEDURE AgregarCopiaLibro
+    @ISBN NVARCHAR(20)
+AS
+BEGIN
+    DECLARE @IDLibro NVARCHAR(20);
+
+    -- Obtener el IDLibro según el ISBN
+    SELECT @IDLibro = IDLibro FROM Libros WHERE ISBN = @ISBN;
+
+    -- Si el libro existe, agregar una nueva copia
+    IF @IDLibro IS NOT NULL
+    BEGIN
+        INSERT INTO CopiasLibros (IDLibro, FechaAdquisicion, Estado)
+        VALUES (@IDLibro, GETDATE(), 'Disponible');
+    END;
+END;
+GO
+
+--procedimiento para obtener el id atraves del ISBN
+CREATE PROCEDURE ObtenerIDLibroPorISBN
+    @ISBN NVARCHAR(20)
+AS
+BEGIN
+    SELECT IDLibro FROM Libros WHERE ISBN = @ISBN;
+END;
+GO
+
+
+--procedimiento de almacenado para reguistrar copia de libro
+CREATE PROCEDURE AgregarCopiaLibro
+    @IDLibro INT
+AS
+BEGIN
+    INSERT INTO CopiasLibros (IDLibro)
+    VALUES (@IDLibro);
+END;
+GO
+
+
 --prestamos
 CREATE TABLE Prestamos (
     Id_Prestamo INT PRIMARY KEY IDENTITY(1,1),
